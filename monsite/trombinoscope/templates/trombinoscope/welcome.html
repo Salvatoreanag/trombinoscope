@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %} Acceuil {% endblock %}
+
+{% block bodyId %} welcomePage {% endblock %}
+
+{% block headerContent %} 
+    <p id="name"> {{ logged_user.first_name }} {{ logged_user.last_name }} </p>
+    <p id="function">
+        {% if logged_user.person_type == 'student' %}
+            Etudiant en 
+            {% if logged_user.year == 1 %} 
+                {{logged_user.year}}ère 
+            {% else %}
+                {{logged_user.year}}ème
+            {% endif %}
+            année de {{ logged_user.cursus.title }}
+        {% else %}
+            {{ logged_user.job.title }} de la {{ logged_user.faculty }}
+        {% endif %}
+    </p>
+
+    <p id="profileLinks">
+        <div id="toto">
+            <a href="/show_profile?userToShow={{ logged_user.id }}/" class="buttonLink">Voir le profil</a>
+            <a href="/modify_profile/" class="buttonLink">Modifier le profil</a>
+        </div>
+        
+    </p>
+
+{% endblock %}
+
+{% block content %} 
+
+    <section id="messageList">
+        <form action="/welcome/" method="POST" class="inlineForm">
+            {% csrf_token %}
+            <label for="newMessageInput">Publier un message:</label>
+            <input type="text" name="newMessage" id="newMessageInput" />
+            <input type="submit" value="Publier" />
+        </form>
+        <ul>
+            {% for message in friendMessages %}
+                <li>
+                    <p>
+                        <a href="/show_profile?userToShow={{ logged_user.id }}/">{{ message.person.first_name }} {{ message.person.last_name }} </a> dit:
+                    </p>
+                    <p> {{ message.content }} </p>
+
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="friendList">
+        <p class="title" >Mes amis</p>
+        <p><a href='/add_friend/' class="buttonLink">Ajouter</a></p>
+        <ul>
+            {% for friend in logged_user.friends.all %}                                                <!--  all permet de récupérer tous les amis de l'utilisateur authentifié-->
+                <li><a href="/show_profile?userToShow={{ logged_user.id }}/">{{ friend.first_name }} {{ friend.last_name }} </a></li>
+            {% endfor %}
+        </ul>
+
+    </section>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+

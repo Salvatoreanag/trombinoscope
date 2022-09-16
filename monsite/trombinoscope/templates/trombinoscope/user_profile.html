@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %} Création d'un profil {% endblock %}
+
+{% block bodyId %} userProfilePage {% endblock %}
+
+{% block content %} 
+    <h1>Création d'un compte</h1>
+    <hr width="100%" color="blue">
+
+    <form>
+        <label for="profileType">Vous êtes:</label>
+        <select id="profileType">
+            <option value="student" {% if studentForm.is_bound %} selected="selected" {% endif %} >Etudiant</option> <!-- Ce code {% if studentForm.is_bound %} selected="selected" {% endif %} permet de traiter le cas où un formulaire soumis n'est pas valide -->
+            <option value="employe" {% if employeForm.id_bound %} selected="selected" {% endif %} >Employé</option>  <!-- ie: lorsque la page est réaffichée,la valeur précédemment choisie est est présélectionnée dans la liste déroulante -->
+        </select>
+    </form>
+
+
+    <form action="" method="POST" id="studentForm" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ studentForm.as_p }}
+        <p>
+            <input type="hidden" name="profileType" value="student" />  <!-- Il est de type hidden et permet de savoir si c'est ce formulaire qui a été soumis ou non -->
+            <input type="submit" value="Créer un compte" />
+            <input type="reset" value="Effacer" class="button_effacer">
+            <a href="/login/"> <input type="button" value="Quitter" class="button_quitter"> </a> 
+        </p>
+        
+    </form>
+
+    <form action="" method="POST" id="employeForm" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ employeForm.as_p }}
+        <p>
+            <input type="hidden" name="profileType" value="employe" />  <!-- Il est de type hidden et permet de savoir si c'est ce formulaire qui a été soumis ou non -->
+            <input type="submit" value="Créer un compte" />
+            <input type="reset" value="Effacer" class="button_effacer">
+            <a href="/login/"> <input type="button" value="Quitter" class="button_quitter"> </a> 
+        </p>
+        
+    </form>
+   
+    <script type="text/javascript">
+        function displayRihtForm(){
+            if ($('#profileType').val() == 'student'){
+                $('#employeForm').hide();
+                $('#studentForm').show();
+            }
+            else{
+                $('#studentForm').hide();
+                $('#employeForm').show();
+            }
+        }
+        $(document).ready(displayRihtForm);                      // la fonction est appelée une 1ere fois au chargement de la page
+        $('#profileType').change(displayRihtForm);               // la fonction est appelée chaque fois que le type de profile est changé
+    </script>
+    
+{% endblock %}
+
+
+
+
+
+
+
+
+

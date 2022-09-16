@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %} Ajout d'un ami {% endblock %}
+
+{% block bodyId %} addUserPage {% endblock %}
+
+{% block content %} 
+    <h1>Ajout d'un ami</h1>
+    <form action="/add_friend/" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <p>
+            <input type="submit" value="Ajouter">
+        </p>
+    </form>
+
+{% endblock %}
+
+
+

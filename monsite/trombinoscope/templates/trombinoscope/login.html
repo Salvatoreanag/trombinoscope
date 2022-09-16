@@ -1,0 +1,29 @@
+{% extends "base.html" %}  <!-- Cela signifie que l'actuel template hérite de base.html-->
+
+{% block title %} Connexion {% endblock %}  <!-- ON complète le titre de la page -->
+
+{% block bodyId %} loginPage {% endblock %}  <!-- On modifie l'id du body-->
+
+{% block content %} <!-- On définie le contenu de la page-->
+    <form action="/login/" method="POST">  <!-- En django pour la valeur de "action",on écrit la methode de traitement du formulaire. POST quant à lui retourne un dictionnaire -->
+        
+        {% csrf_token %}          <!-- csrf_token est une balise en mesure de sécurité imposée par django losrqu'on manipule les formulaires avec la méthode post --> 
+        
+        {{ form.as_p }}             <!-- La méthode as_p as pour effet de mettre chaque champ dans un paragraphe comme cela se fait manuellement en html. -->
+                                    <!-- Il existe également as_table qui produit le formulaire sous forme tableau et as_ul sous forme de liste -->
+        <!--
+        <p>
+            <label for="email">Courriel:</label>
+            <input type="email" name="email" id="email" size="30" />
+        </p>
+        <p>
+            <label for="password">Mot de passe:</label>
+            <input type="password" name="password" id="password" size="30">
+        </p> -->
+        <p id="buttonLogin">
+            <input type="submit" value="Se connecter">
+            <a href="/register/">Créer un compte</a>
+        </p>
+    </form>
+{% endblock %}
+

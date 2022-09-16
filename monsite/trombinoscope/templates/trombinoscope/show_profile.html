@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %} Affichage d'un profil {% endblock %}
+
+{% block bodyId %} showProfilePage {% endblock %}
+
+{% block content %} 
+    
+    <h1>Affichage d'un profil</h1>
+    <dl class="fieldList">
+        <dt>Nom:</dt>
+            <dd>{{ user_to_show.last_name }}</dd>
+        <dt>Prénom:</dt>
+            <dd>{{ user_to_show.first_name }}</dd>
+        <dt>Date de naissance:</dt>
+            <dd>{{ user_to_show.birth_date }}</dd>
+        <dt>Matricule:</dt>
+            <dd>{{ user_to_show.registration_number }}</dd>
+        <dt>Adresse email:</dt>
+            <dd>{{ user_to_show. }}</dd>
+        <dt>Téléphone fixe:</dt>
+            <dd>{{ user_to_show.home_phone_number }}</dd>
+        <dt>Téléphone mobile:</dt>
+            <dd>{{ user_to_show.cellphone_number }}</dd>
+        {% if user_to_show.person_type == "student" %}
+            <dt>Cursus:</dt>
+                <dd>{{ user_to_show.cursus.title }}</dd>
+            <dt>Année:</dt>
+                <dd>{{ user_to_show.year }}</dd>
+        {% elif user_to_show.person_type == "employe" %}
+            <dt>Bureau:</dt>
+                <dd>{{ user_to_show.office }}</dd>
+            <dt>Campus:</dt>
+                <dd>{{ user_to_show.campus.name }}</dd>
+            <dt>Fonction:</dt>
+                <dd>{{ user_to_show.job.title }}</dd>
+        {% endif %}
+    </dl>
+    <p id="showProfileNavigationButtons">
+        <a href="/welcome/" class="buttonLink">Retour</a>
+    </p>
+{% endblock %}

@@ -1,0 +1,22 @@
+<!-- Ici c'est le template de base qui contient la structure commune à toutes les autres pages html.Ainsi les autres pages hériterons de cette page-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/trombinoscope/css/style.css">
+    <script type="text/javascript" src="../static/trombinoscope/js/jquery-3.6.0.js" ></script>
+    <title>Trombinoscope-{% block title %} Bienvenue {% endblock %}</title> <!-- Chaque page aura un titre qui commence par Trombinoscope.Les templates enfants pourront commpleter à leur guise.Mais par défaut c'est 'Bienvenue' -->
+</head>
+<body id="{% block bodyId %} genericpage {% endblock %}">  <!-- On ajoute ici un id puisque le body pouurra être modifier par un template enfant  -->
+   
+    <header>
+        {% block headerContent %} {% endblock %}
+    </header>
+
+    <section id="content">
+        {% block content %} {% endblock %}
+    </section>
+</body>
+</html>

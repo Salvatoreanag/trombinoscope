@@ -1,0 +1,241 @@
+header{                  /* On s'attaque ici à la banière */
+    position: absolute;
+    left: -230px;
+    top: 0;
+    height: 100px;
+    width: 100%;
+    background: #3d07e1 url('../img/logo.png') no-repeat 50px 25px;
+    border-bottom: 1px solid #133783;
+}
+
+body{            /* On defini ici la police,la taille de la ploice et la couleur du body*/
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #000333;
+    margin: auto;
+    width: 80%;
+}
+
+section#content{   /* on travaille ici sur la section  */
+    position: absolute;
+    top: 150px;
+    left: 30%;
+    /* border: 1px solid; */
+    width: 80%;
+    margin: 0 0 0 -250px;
+    padding: 0;
+}
+
+form label{           /* les label du formulaire*/
+    display: block;
+    width: 450px;
+    float: left;
+    text-align: right;
+    padding: 4px 10px 0 0;
+}
+
+form input[type="email"], form input[type="text"] ,form input[type="password"]{
+    display: block;
+    width: 280px;
+    padding: 5px;
+}
+
+form input[type="submit"]{
+    margin: 0 20px 0 460px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #d9dfea #0e1f5b #d9dfea;
+    background-color: #3d07e1;
+    color: #ffffff;
+    padding: 2px 15px 3px 15px;
+    text-align: center;
+    font-size: 15px;
+}
+
+form input[type="button"]{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #d9dfea #0e1f5b #d9dfea;
+    background-color: rgb(255, 0, 0);
+    color: #ffffff;
+    padding: 2px 15px 3px 15px;
+    text-align: center;
+    font-size: 15px;
+}
+
+form input[type="reset"]{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #d9dfea #0e1f5b #d9dfea;
+    background-color: rgb(255, 166, 0);
+    color: #ffffff;
+    padding: 2px 15px 3px 15px;
+    text-align: center;
+    font-size: 15px;
+}
+
+a{
+    color: #3d07e1;
+}
+
+ul.errorlist{               /* par analyse du code html produit par django,on constate de les messages d'erreurs */
+    margin-left: 100px;     /* sont en fait des listes de classe errorlist */
+    padding: 0;
+    list-style-type: none;
+    color: rgb(255,0,0);
+}
+
+h1{
+    text-align: center;
+    font-size: 22px;
+    margin: 0px 60px 30px 60px;
+    padding: 0 0 5px 0;
+    color: #3b5998;
+}
+
+.button_effacer{
+    background-color: rgb(192, 31, 31);
+}
+
+/* .button_quitter{
+    background-color: rgb(243, 141, 8);
+    border: 0;
+}
+
+.button_effacer, .button_quitter{
+    color: white;
+    border: 0;
+} */
+
+#welcomePage, header{
+    background: #3b5998 url('../img/logo.png') no-repeat 20px 25px;
+    color: #ffffff;
+} 
+
+body#welcomePage ,header, p#name{
+    font-size: 14px;
+    margin: 25px 0 0 230px;
+}
+
+body#welcomePage ,header ,p#function{
+    margin: 0 0 0 230px;
+}
+
+body#welcomePage header p#profileLinks{
+    position: absolute;
+    right: 40px;
+    top: 25px;
+}
+
+a.buttonLink{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #d9dfea #0e1f5b #0e1f5b #d9dfea;
+    background-color: #3b5998;
+    color: #ffffff;
+    padding: 2px 15px 3px 15px;
+    text-align: center;
+    text-decoration: none;
+} 
+
+#toto{
+    margin: 1px 0 0 1000px;
+}
+
+
+body#welcomePage ,section#content{
+    width: 1300px;
+    margin: 0 0 0 -400px;
+}
+
+body#welcomePage , section#messageList{
+    position: absolute;
+    width: 1000px;
+    background-color: rgba(255, 167, 3, 0.338);
+}
+
+body#welcomePage , section#friendList{
+    position: absolute;
+    width: 300px;
+    right: 0;
+    background-color: #013cff22;
+}
+
+form.inlineForm label{
+    display: inline;
+    float: none;
+    padding: 0;
+}
+
+form.inlineForm input[type="text"]{
+    display: inline-block;
+    width: 250px;
+    height: 30px;
+}
+
+form.inlineForm input[type="submit"]{
+    margin: 0;
+}
+
+section#messageList  ul{
+    margin: 20px 0 0 0px;
+    list-style: none;
+    padding: 10px;
+}
+
+section#messageList ul  li {
+    margin-bottom: 20px;
+}
+
+section#messageList ul li p{
+    margin: 8px 0 0 0;
+}
+
+section#friendList  p.title{
+    font-size: 22px;
+    color: #3b5998;
+    border-bottom: 2px solid #3b5998;
+    margin: 0 0 20px 0;
+}
+
+section#friendList  ul {
+    margin: 20px 0 0 0;
+    list-style: none;
+    padding: 5px;
+}
+
+section#friendList  ul  li {
+    margin: 0 0 5px 0;
+}
+
+
+dl.fieldList dt{
+    display: block;
+    width: 250px;
+    float: left;
+    text-align: right;
+    padding: 0 10px 0 0;
+    font-weight: bold;
+}
+
+dl.fieldList dd{
+    display: block;
+    width: 450px;
+    padding: 0px;
+    margin: 0 0 10px 0;
+}
+
+
+p#showProfileNavigationButtons{
+    margin: 20px 0 0 260px;
+}
+
+
+
+
+
+
+
+
